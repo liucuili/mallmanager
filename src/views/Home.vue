@@ -85,7 +85,13 @@
         </el-submenu>
         </el-menu>
       </el-aside>
-        <el-main class="main">Main</el-main>
+        <el-main class="main">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item><a href="/">用户管理</a></el-breadcrumb-item>
+            <el-breadcrumb-item>用户列表</el-breadcrumb-item>
+          </el-breadcrumb>
+        </el-main>
       </el-container>
   </el-container>
 </template>
@@ -108,7 +114,6 @@ export default {
       // 销毁 session,页面跳转
       sessionStorage.clear()
       this.$router.push('/login')
-      console.log(this.$message)
       this.$message.success('退出成功')
     }
   }
